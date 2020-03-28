@@ -20,7 +20,7 @@
     "client-certificate-auth": "^0.3.0",
     "compression": "^1.6.2",
     "cookie-session": "^2.0.0-beta.3",
-    "ejs": "^1.0.0",
+    "ejs": "^2.5.5",
     "express": "^4.14.0",
     "express-session": "^1.15.6",
     "https-agent": "^1.0.0",
