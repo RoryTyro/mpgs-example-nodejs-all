@@ -15,7 +15,7 @@
     },
     "GATEWAY_BASE_URL": {
       "required": true,
-      "description": "The Gateway base URL to target. Use your region specific url if you have one.", 
+      "description": "The Gateway base URL to target. Use your region specific url if you have one." 
     },
     "GATEWAY_API_VERSION": {
       "required": false,
