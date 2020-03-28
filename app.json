@@ -1,0 +1,7 @@
+{
+  "name": "MPGS NodeJS example",
+  "description": "A basic example of MPGS features in NodeJS for Tyro merchants",
+  "repository": "https://github.com/RoryTyro/mpgs-example-nodejs-all",
+  "logo": "https://2n18ua1tyz6r3kfqtckmdy45-wpengine.netdna-ssl.com/wp-content/themes/tyro/assets/img/logo.png",
+  "keywords": ["node", "MPGS", "Tyro"]
+}
