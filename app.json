@@ -5,27 +5,27 @@
   "logo": "https://2n18ua1tyz6r3kfqtckmdy45-wpengine.netdna-ssl.com/wp-content/themes/tyro/assets/img/logo.png",
   "keywords": ["node", "MPGS", "Tyro"],
   "env": {
-    "GATEWAY_MERCHANT_ID": {
+    "USERNAME": {
       "required": true,
       "description": "Your TEST Gateway merchant ID (must begin with 'TEST')",
       "value": "TYRO_318"
     },
-    "GATEWAY_API_PASSWORD": {
+    "PASSWORD": {
       "required": true,
       "description": "Your TEST Gateway API password",
       "value": "e627bccdeba510cd6be5f0745c3f7091"
     },
-    "GATEWAY_BASE_URL": {
+    "TEST_GATEWAY_URL": {
       "required": true,
       "description": "The Gateway base URL to target. Use your region specific url if you have one.",
       "value": "https://test-tyro.mtf.gateway.mastercard.com" 
     },
-    "GATEWAY_API_VERSION": {
+    "API_VERSION": {
       "required": false,
       "description": "Your TEST Gateway API Version",
       "value": "55"
     },
-    "GATEWAY_DEFAULT_CURRENCY": {
+    "CURRENCY_LABEL": {
       "required": false,
       "description": "Your TEST Gateway Default Currency",
       "value": "AUD"
