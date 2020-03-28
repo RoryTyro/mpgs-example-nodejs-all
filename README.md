@@ -20,6 +20,9 @@ NOTE:Make sure that your flag (IS_CERT_AUTH_ENABLED)should be "flase" while runn
 
 4. Navigate to *http://localhost:5000* to test locally
 
+## Deploy with Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Disclaimer
 This software is intended for **TEST/REFERENCE** purposes **ONLY** and is not intended to be used in a production environment.
