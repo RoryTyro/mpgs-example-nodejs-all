@@ -26,7 +26,7 @@ function setAuthentication(config, options) {
         options.auth = {
             user: config.TEST_GATEWAY.USERNAME,
             pass: config.TEST_GATEWAY.PASSWORD,
-            sendImmediately: false
+            sendImmediately: true
         };
     }
 }

@@ -123,6 +123,7 @@ function retriveOrder(requestData, url, callback) {
 * @param {*} callback -return callback body
 */
 function getSession(requestData, callback) {
+    console.log("getting a session via gatewayService");
     var url = utils.getTestMerchantUrl(config) + "/session";
     var options = {
         url: url,
@@ -130,6 +131,7 @@ function getSession(requestData, callback) {
     };
     utils.setAuthentication(config, options);
     request.post(options, function (error, response, body) {
+        console.log("response is: " + JSON.stringify(body));
         return callback(body);
     });
 }
@@ -460,14 +462,17 @@ function throwUnsupportedProtocolException() {
 function postData(data, url, callback) {
     var error = null;
     var body = null;
-
+    console.log("posting data");
     var httpRequest = {
         url: url,
         method: "POST",
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ' + new Buffer(config.TEST_GATEWAY.USERNAME + ":" + config.TEST_GATEWAY.PASSWORD).toString("base64")
-        }
+ //           'Authorization': 'Basic ' + new Buffer(config.TEST_GATEWAY.USERNAME + ":" + config.TEST_GATEWAY.PASSWORD).toString("base64")
+//trying to hardcode values
+            'Authorization': 'Basic ' + new Buffer("merchant.TYRO_318:e627bccdeba510cd6be5f0745c3f7091").toString("base64")
+     
+}
     }
 
     var options = {
@@ -534,6 +539,33 @@ function processTokenPay(requestData, apiRequest, callback) {
 
     });
 }
+
+// new create Token function for hosted payment page. Creates token from session after card details captured in hosted check out page.
+function createTokenFromSession(requestData, apiRequest, callback) {
+  
+   
+    request(options, function (error, response, body) {
+        var tokenRequestData = { session: { id: requestData.session.id } };
+        var tokenRequestUrl = utils.getTestMerchantUrl(config) + "/token";
+        var tokenOptions = {
+            url: tokenRequestUrl,
+            method: "POST",
+            json: tokenRequestData,
+        }
+        utils.setAuthentication(config, tokenOptions);
+        
+            request(tokenPayOptions, function (error, response, body) {
+                return callback({
+                    url: tokenPayUrl,
+                    mthd: "PUT",
+                    payload: tokenPayData,
+                    resbody: body
+                });
+            })
+
+        });
+}
+
 function constructGeneralErrorResponse(e) {
     mav = {};
     mav.viewName = "error";

@@ -118,8 +118,12 @@ router.post('/pay', function (request, response) {
     var requestUrl = gatewayService.getRequestUrl("REST", apiRequest);
     gatewayService.processPay(requestData, requestUrl, function (result) {
         handleResponse(result, request, response);
+        response.set('X-Frame-Options', 'sameorigin')
     });
 });
+
+
+
 /**
 * This method calls the capture operation, which returns the  response body or error body.
 *

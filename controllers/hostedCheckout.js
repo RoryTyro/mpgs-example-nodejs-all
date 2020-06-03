@@ -15,7 +15,11 @@ router.get('/hostedCheckout', function (request, response, next) {
         "apiOperation": "CREATE_CHECKOUT_SESSION",
         "order": {
             "id": orderId,
-            "currency": utils.getCurrency()
+            "currency": utils.getCurrency(),
+            "owningEntity": "1010"
+        },
+        "interaction": {
+            "operation": "AUTHORIZE"
         }
     }
     var apiRequest = { orderId: orderId };
@@ -71,6 +75,7 @@ router.get('/hostedCheckout/:orderId/:result', function (request, response, next
     var result = request.params.result;
     var orderId = request.params.orderId;
     if (result == "SUCCESS") {
+      //  gatewayService.createTokenFromSession();
         var apiRequest = { orderId: orderId };
         var requestUrl = gatewayService.getRequestUrl("REST", apiRequest);
         gatewayService.paymentResult(requestUrl, function (error, result) {

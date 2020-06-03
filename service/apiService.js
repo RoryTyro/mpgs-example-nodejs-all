@@ -4,7 +4,7 @@ require('request-debug')(request);
 var auth = {
     user: config.TEST_GATEWAY.USERNAME,
     pass: config.TEST_GATEWAY.PASSWORD,
-    sendImmediately: false
+    sendImmediately: true
 };
 function buildMap(apiRequest) {
     var keyValueMap = {};
@@ -53,6 +53,7 @@ function throwUnsupportedProtocolException() {
  * @param {*} callback
  */
 function getSession(requestData, callback) {
+    console.log("getting a session via apiService");
     var url = config.TEST_GATEWAY.URI + "/merchant/" + config.TEST_GATEWAY.MERCHANT + "/session";
     var options = {
         url: url,
@@ -60,6 +61,7 @@ function getSession(requestData, callback) {
         json: requestData,
         auth: auth
     }
+  
     return request(options, function (error, response, body) {
         return callback(body);
     });
