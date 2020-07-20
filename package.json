@@ -25,7 +25,7 @@
     "express-session": "^1.15.6",
     "https-agent": "^1.0.0",
     "jquery": "~3.2.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "request": "^2.81.0",
     "request-debug": "^0.2.0",
     "restler": "^3.4.0"
